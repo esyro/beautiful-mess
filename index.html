@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Beautiful Mess — Art, Books & Objects</title>
-    <meta name="description" content="A curated collection of original art, rare books, and objects that embrace creative imperfection. Shop the beautiful mess.">
+    <title>Beautiful Mess — Art, Books, Objects & More</title>
+    <meta name="description" content="A beautiful mess of custom garage merch, educational colouring books, handmade candles, and 3D printed creations.">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,765 +13,205 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Instrument+Sans:wght@400;500;600&display=swap');
         
-        :root {
-            --font-serif: 'Playfair Display', Georgia, serif;
-        }
-        
-        .heading-serif {
-            font-family: var(--font-serif);
+        .logo-pink {
+            font-family: 'Playfair Display', Georgia, serif;
+            color: #ff1493;
+            text-shadow: 0 0 20px rgba(255, 20, 147, 0.5);
+            letter-spacing: -2px;
         }
 
-        .nav-link {
-            position: relative;
-            transition: color 0.2s ease;
+        .portal-icon {
+            filter: drop-shadow(0 10px 10px rgb(0 0 0 / 0.5));
         }
-        
-        .nav-link:after {
+
+        .mechanical-border {
+            position: relative;
+        }
+        .mechanical-border::before {
             content: '';
             position: absolute;
-            width: 0;
-            height: 1px;
-            bottom: -2px;
-            left: 0;
-            background-color: #8b5e3c;
-            transition: width 0.3s ease;
-        }
-        
-        .nav-link:hover:after {
-            width: 100%;
-        }
-
-        .product-card, .gallery-item {
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .section-header {
-            font-size: 2.25rem;
-            line-height: 1.1;
-            letter-spacing: -0.02em;
-        }
-
-        @media (min-width: 768px) {
-            .section-header {
-                font-size: 2.75rem;
-            }
-        }
-
-        .artistic-text {
-            font-feature-settings: "kern" 1, "tnum" 1;
+            inset: -1px;
+            background: linear-gradient(45deg, #ff1493, transparent, #ff1493);
+            z-index: -1;
+            opacity: 0.15;
+            border-radius: 1rem;
         }
     </style>
 </head>
-<body class="bg-[#f8f1e9] text-[#1f1814] font-sans antialiased">
+<body class="bg-[#0a0a0a] text-[#f1f1f1]">
     <!-- Navbar -->
-    <nav class="bg-white/95 backdrop-blur-md border-b border-stone-200 sticky top-0 z-50">
-        <div class="max-w-screen-2xl mx-auto">
-            <div class="px-8 py-5 flex items-center justify-between">
-                <div class="flex items-center gap-x-3">
-                    <!-- Logo -->
-                    <div class="flex items-center gap-x-2.5">
-                        <div class="w-9 h-9 bg-[#3f2a1e] rounded-full flex items-center justify-center">
-                            <span class="text-white text-2xl leading-none mt-0.5">B</span>
-                        </div>
-                        <div>
-                            <span class="font-serif text-3xl tracking-tighter text-[#3f2a1e]">Beautiful</span>
-                            <span class="font-serif text-3xl tracking-tighter text-[#8b5e3c]"> Mess</span>
-                        </div>
+    <nav class="navbar sticky top-0 z-50 border-b border-zinc-800">
+        <div class="max-w-screen-2xl mx-auto px-8">
+            <div class="flex items-center justify-between h-20">
+                <a href="index.html" class="flex items-center gap-x-3">
+                    <div class="w-9 h-9 bg-[#ff1493] rounded-xl flex items-center justify-center">
+                        <span class="text-black text-2xl font-bold tracking-tighter">B</span>
                     </div>
-                </div>
+                    <span class="font-display text-4xl tracking-tighter logo-pink">Beautiful Mess</span>
+                </a>
 
-                <!-- Desktop Navigation -->
-                <div class="hidden md:flex items-center gap-x-9 text-sm font-medium">
-                    <a href="#gallery" class="nav-link text-[#3f2a1e] hover:text-[#8b5e3c] px-1">Gallery</a>
-                    <a href="#shop" class="nav-link text-[#3f2a1e] hover:text-[#8b5e3c] px-1">Shop</a>
-                    <a href="#about" class="nav-link text-[#3f2a1e] hover:text-[#8b5e3c] px-1">Our Story</a>
-                    <a href="#contact" class="nav-link text-[#3f2a1e] hover:text-[#8b5e3c] px-1">Contact</a>
-                </div>
+                <div class="flex items-center gap-x-8">
+                    <div class="hidden md:flex items-center gap-x-8 text-sm font-medium">
+                        <a href="garage.html" class="nav-link">Garage</a>
+                        <a href="books.html" class="nav-link">Books</a>
+                        <a href="candles.html" class="nav-link">Candles</a>
+                        <a href="printing.html" class="nav-link">3D Printing</a>
+                    </div>
 
-                <!-- Cart Button -->
-                <div class="flex items-center gap-x-4">
-                    <button onclick="toggleCart()"
-                            class="flex items-center gap-x-2.5 px-5 py-2.5 rounded-2xl border border-stone-300 hover:border-[#8b5e3c] transition-colors group">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-[#3f2a1e] group-hover:text-[#8b5e3c] transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+                    <!-- Cart Button -->
+                    <button id="cart-btn" onclick="toggleCart()"
+                            class="flex items-center gap-x-2.5 px-5 py-2.5 rounded-2xl border border-zinc-700 hover:border-pink-500 transition-all group">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-pink-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
                         </svg>
-                        <span class="text-sm font-medium text-[#3f2a1e]">Cart</span>
-                        <span id="cart-count" 
-                              class="inline-flex items-center justify-center w-5 h-5 text-[10px] font-semibold bg-[#8b5e3c] text-white rounded-full">0</span>
-                    </button>
-
-                    <!-- Mobile menu -->
-                    <button class="md:hidden p-2 text-[#3f2a1e]" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                        </svg>
+                        <span class="text-sm font-medium">Cart</span>
+                        <span id="cart-count" class="inline-flex items-center justify-center min-w-[20px] h-5 px-1.5 text-[10px] font-bold bg-pink-500 text-black rounded-full">0</span>
                     </button>
                 </div>
-            </div>
-        </div>
-
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden border-t border-stone-200 bg-white px-8 py-4">
-            <div class="flex flex-col gap-y-3 text-sm font-medium">
-                <a href="#gallery" class="py-1 text-[#3f2a1e]" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Gallery</a>
-                <a href="#shop" class="py-1 text-[#3f2a1e]" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Shop</a>
-                <a href="#about" class="py-1 text-[#3f2a1e]" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Our Story</a>
-                <a href="#contact" class="py-1 text-[#3f2a1e]" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Contact</a>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <header class="hero min-h-[100dvh] flex items-center relative">
-        <div class="max-w-screen-2xl mx-auto px-8 pt-16 pb-24">
-            <div class="max-w-2xl">
-                <div class="inline-flex items-center gap-x-2 px-4 py-1.5 rounded-full bg-white/90 text-[#3f2a1e] text-xs tracking-[3px] font-medium mb-6 shadow-sm">
-                    <div class="w-1.5 h-1.5 bg-[#8b5e3c] rounded-full animate-pulse"></div>
-                    EST. 2026
-                </div>
-                
-                <h1 class="text-7xl md:text-8xl leading-[0.92] tracking-tighter text-white font-serif mb-6">
-                    A beautiful<br>mess of<br>creativity.
-                </h1>
-                
-                <p class="max-w-md text-lg text-white/90 mb-10 leading-relaxed">
-                    Original artworks, rare books, and objects that refuse to be ordinary. 
-                    Curated for those who find beauty in the imperfect.
-                </p>
-
-                <div class="flex flex-wrap gap-4">
-                    <a href="#gallery" 
-                       class="inline-flex items-center justify-center px-8 py-4 rounded-2xl bg-white text-[#3f2a1e] font-medium text-sm tracking-wide hover:bg-[#f8f1e9] active:scale-[0.985] transition-all shadow-lg">
-                        EXPLORE THE GALLERY
-                    </a>
-                    <a href="#shop" 
-                       class="inline-flex items-center justify-center px-8 py-4 rounded-2xl border-2 border-white/70 text-white font-medium text-sm tracking-wide hover:bg-white/10 active:scale-[0.985] transition-all">
-                        SHOP THE COLLECTION
-                    </a>
-                </div>
-
-                <div class="mt-16 flex items-center gap-x-8 text-white/70 text-xs tracking-widest">
-                    <div>SHIP WORLDWIDE</div>
-                    <div class="w-px h-3 bg-white/30"></div>
-                    <div>ONE-OF-A-KIND PIECES</div>
-                </div>
-            </div>
+    <!-- Hero -->
+    <div class="max-w-screen-2xl mx-auto px-8 pt-16 pb-12 text-center">
+        <div class="inline-flex items-center gap-x-2 px-4 py-1 rounded-full bg-zinc-900 border border-zinc-800 text-xs tracking-[3px] mb-6">
+            EST. 2026 • GREY COUNTY, ONTARIO
         </div>
-        
-        <!-- Scroll indicator -->
-        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 hidden md:block">
-            <div class="flex flex-col items-center text-white/60 text-[10px] tracking-[2px]">
-                SCROLL TO BEGIN
-                <div class="mt-1.5 w-px h-8 bg-white/40"></div>
-            </div>
-        </div>
-    </header>
 
-    <!-- About / Our Story -->
-    <section id="about" class="max-w-screen-2xl mx-auto px-8 py-20 border-b border-stone-200">
-        <div class="max-w-3xl mx-auto text-center">
-            <div class="uppercase tracking-[4px] text-xs font-semibold text-[#8b5e3c] mb-3">OUR PHILOSOPHY</div>
-            <h2 class="section-header font-serif text-[#3f2a1e] mb-6">We believe in beautiful imperfection.</h2>
+        <h1 class="font-display text-7xl md:text-8xl tracking-tighter mb-4">
+            A <span class="logo-pink">beautiful mess</span><br>of creativity.
+        </h1>
+        <p class="max-w-md mx-auto text-lg text-zinc-400">
+            Custom garage merch, educational colouring books, handmade candles,<br class="hidden md:block"> and limited 3D printed creations.
+        </p>
+    </div>
+
+    <!-- The Four Portals -->
+    <div class="max-w-screen-2xl mx-auto px-8 pb-20">
+        <div class="text-center mb-10">
+            <div class="uppercase tracking-[4px] text-xs font-semibold text-pink-500 mb-2">EXPLORE THE MESS</div>
+            <h2 class="font-display text-4xl tracking-tighter">Choose Your Portal</h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             
-            <div class="prose prose-stone max-w-none text-[#3f2a1e]/90 text-[15px] leading-relaxed">
-                <p>Beautiful Mess was born from the idea that the most meaningful objects in our lives rarely arrive perfectly polished. 
-                They carry stories, texture, and a certain delightful chaos.</p>
-                <p class="mt-4">We hunt for original paintings and drawings that feel alive, books that have been loved (or should be), 
-                and objects that spark something wordless. Everything here is chosen with care — and a little bit of wildness.</p>
-            </div>
-
-            <div class="mt-10 flex justify-center gap-x-8 text-sm">
-                <div class="text-center">
-                    <div class="font-serif text-4xl text-[#8b5e3c]">47</div>
-                    <div class="text-xs tracking-widest mt-1 text-[#3f2a1e]/70">ARTISTS</div>
-                </div>
-                <div class="text-center">
-                    <div class="font-serif text-4xl text-[#8b5e3c]">312</div>
-                    <div class="text-xs tracking-widest mt-1 text-[#3f2a1e]/70">PIECES CURATED</div>
-                </div>
-                <div class="text-center">
-                    <div class="font-serif text-4xl text-[#8b5e3c]">19</div>
-                    <div class="text-xs tracking-widest mt-1 text-[#3f2a1e]/70">COUNTRIES</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Gallery Section -->
-    <section id="gallery" class="max-w-screen-2xl mx-auto px-8 py-16">
-        <div class="flex flex-col md:flex-row md:items-end md:justify-between mb-10">
-            <div>
-                <div class="uppercase tracking-[3px] text-xs font-semibold text-[#8b5e3c]">IN THE STUDIO</div>
-                <h2 class="section-header font-serif text-[#3f2a1e]">The Gallery</h2>
-            </div>
-            <p class="max-w-xs text-sm text-[#3f2a1e]/70 mt-3 md:mt-0">Original works and limited editions. Click any piece to see the full story.</p>
-        </div>
-
-        <!-- Gallery Grid (Masonry) -->
-        <div class="gallery-grid max-w-screen-2xl">
-            <!-- Gallery Item 1 -->
-            <div onclick="openGalleryModal('https://picsum.photos/id/1015/1200/1600', 'Fractured Light', 'Elena Voss', 'Oil on raw linen, 48×36 in', 'A meditation on memory and the way light fractures through time. Created during a residency in coastal Maine, this piece captures the tension between structure and dissolution.')
-" class="gallery-item group">
-                <img src="https://picsum.photos/id/1015/800/1100" alt="Fractured Light by Elena Voss" class="w-full">
-                <div class="p-5 bg-white">
-                    <div class="flex justify-between items-start">
-                        <div>
-                            <h3 class="font-medium text-lg leading-tight">Fractured Light</h3>
-                            <p class="text-sm text-[#8b5e3c] mt-0.5">Elena Voss</p>
-                        </div>
-                        <span class="text-[10px] px-3 py-1 rounded-full bg-stone-100 text-stone-600 self-start">Original</span>
+            <!-- Garage Portal -->
+            <div class="portal-card group rounded-3xl overflow-hidden border border-zinc-800 h-full flex flex-col" data-target="garage.html">
+                <div class="relative h-56 bg-zinc-950 flex items-center justify-center overflow-hidden">
+                    <div class="text-center">
+                        <div class="text-7xl mb-3 portal-icon">🔧</div>
+                        <div class="text-xs tracking-[3px] text-pink-500 font-semibold">CUSTOM MERCH</div>
                     </div>
+                    <!-- Shutter overlay for animation -->
+                    <div class="shutter rounded-t-3xl"></div>
                 </div>
-            </div>
-
-            <!-- Gallery Item 2 -->
-            <div onclick="openGalleryModal('https://picsum.photos/id/160/1200/900', 'The Weight of Quiet', 'Marcus Hale', 'Charcoal, graphite & gold leaf on paper, 30×44 in', 'A large-scale drawing exploring silence, presence, and the emotional weight we carry. The gold leaf catches light differently throughout the day.')
-" class="gallery-item group">
-                <img src="https://picsum.photos/id/160/800/650" alt="The Weight of Quiet by Marcus Hale" class="w-full">
-                <div class="p-5 bg-white">
-                    <div class="flex justify-between items-start">
-                        <div>
-                            <h3 class="font-medium text-lg leading-tight">The Weight of Quiet</h3>
-                            <p class="text-sm text-[#8b5e3c] mt-0.5">Marcus Hale</p>
-                        </div>
-                        <span class="text-[10px] px-3 py-1 rounded-full bg-stone-100 text-stone-600 self-start">Original</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Gallery Item 3 -->
-            <div onclick="openGalleryModal('https://picsum.photos/id/201/1200/1200', 'Velvet Static', 'Sofia Reyes', 'Acrylic, oil pastel & collage on canvas, 40×40 in', 'Built in layers over six months. Reyes describes it as “the sound of a room after everyone has left.” Rich texture with moments of unexpected softness.')
-" class="gallery-item group">
-                <img src="https://picsum.photos/id/201/800/800" alt="Velvet Static by Sofia Reyes" class="w-full">
-                <div class="p-5 bg-white">
-                    <div class="flex justify-between items-start">
-                        <div>
-                            <h3 class="font-medium text-lg leading-tight">Velvet Static</h3>
-                            <p class="text-sm text-[#8b5e3c] mt-0.5">Sofia Reyes</p>
-                        </div>
-                        <span class="text-[10px] px-3 py-1 rounded-full bg-amber-100 text-amber-800 self-start">Sold</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Gallery Item 4 -->
-            <div onclick="openGalleryModal('https://picsum.photos/id/251/1200/900', 'Borrowed Horizon', 'Theo Lang', 'Mixed media on panel, 24×36 in', 'Lang works with found maps, pigments, and wax. This piece feels like standing at the edge of a memory you can’t quite place.')
-" class="gallery-item group">
-                <img src="https://picsum.photos/id/251/800/650" alt="Borrowed Horizon by Theo Lang" class="w-full">
-                <div class="p-5 bg-white">
-                    <div class="flex justify-between items-start">
-                        <div>
-                            <h3 class="font-medium text-lg leading-tight">Borrowed Horizon</h3>
-                            <p class="text-sm text-[#8b5e3c] mt-0.5">Theo Lang</p>
-                        </div>
-                        <span class="text-[10px] px-3 py-1 rounded-full bg-stone-100 text-stone-600 self-start">Original</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Gallery Item 5 -->
-            <div onclick="openGalleryModal('https://picsum.photos/id/29/1200/1600', 'Ash & Honey', 'Lila Moreau', 'Oil, cold wax & 24k gold on linen, 36×48 in', 'Moreau’s signature technique of building and scraping back layers. Warm honey tones interrupted by cool ash. A study in contrast and time.')
-" class="gallery-item group">
-                <img src="https://picsum.photos/id/29/800/1100" alt="Ash & Honey by Lila Moreau" class="w-full">
-                <div class="p-5 bg-white">
-                    <div class="flex justify-between items-start">
-                        <div>
-                            <h3 class="font-medium text-lg leading-tight">Ash & Honey</h3>
-                            <p class="text-sm text-[#8b5e3c] mt-0.5">Lila Moreau</p>
-                        </div>
-                        <span class="text-[10px] px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 self-start">Available</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Gallery Item 6 -->
-            <div onclick="openGalleryModal('https://picsum.photos/id/180/1200/900', 'The Longing Archive', 'Jasper Kline', 'Archival ink, watercolor & thread on paper, 22×30 in (framed)', 'A delicate work of mapped longing. Kline sews directly into the paper, creating physical lines between imagined places and real emotions.')
-" class="gallery-item group">
-                <img src="https://picsum.photos/id/180/800/650" alt="The Longing Archive by Jasper Kline" class="w-full">
-                <div class="p-5 bg-white">
-                    <div class="flex justify-between items-start">
-                        <div>
-                            <h3 class="font-medium text-lg leading-tight">The Longing Archive</h3>
-                            <p class="text-sm text-[#8b5e3c] mt-0.5">Jasper Kline</p>
-                        </div>
-                        <span class="text-[10px] px-3 py-1 rounded-full bg-stone-100 text-stone-600 self-start">Original</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="text-center mt-8">
-            <a href="#shop" class="inline-flex items-center text-sm font-medium text-[#8b5e3c] hover:text-[#3f2a1e] group">
-                See available works in the shop 
-                <span class="ml-1.5 group-hover:translate-x-0.5 transition-transform">→</span>
-            </a>
-        </div>
-    </section>
-
-    <!-- Shop Section -->
-    <section id="shop" class="bg-white border-y border-stone-200 py-16">
-        <div class="max-w-screen-2xl mx-auto px-8">
-            <div class="flex flex-col md:flex-row md:items-end md:justify-between mb-9">
-                <div>
-                    <div class="uppercase tracking-[3px] text-xs font-semibold text-[#8b5e3c]">BRING SOMETHING HOME</div>
-                    <h2 class="section-header font-serif text-[#3f2a1e]">The Shop</h2>
-                </div>
-                <p class="max-w-sm text-sm text-[#3f2a1e]/70 mt-3 md:mt-0">Originals, limited editions, and objects worth living with.</p>
-            </div>
-
-            <!-- Filter Buttons -->
-            <div class="flex flex-wrap gap-2 mb-8">
-                <button onclick="filterProducts('all')" 
-                        class="filter-btn px-5 py-2 text-sm font-medium rounded-2xl bg-[#3f2a1e] text-white transition-all active:scale-[0.985]"
-                        data-category="all">All</button>
-                <button onclick="filterProducts('art')" 
-                        class="filter-btn px-5 py-2 text-sm font-medium rounded-2xl bg-white text-[#8b5e3c] border border-[#8b5e3c] hover:bg-[#f8f1e9] transition-all"
-                        data-category="art">Original Art</button>
-                <button onclick="filterProducts('prints')" 
-                        class="filter-btn px-5 py-2 text-sm font-medium rounded-2xl bg-white text-[#8b5e3c] border border-[#8b5e3c] hover:bg-[#f8f1e9] transition-all"
-                        data-category="prints">Prints & Editions</button>
-                <button onclick="filterProducts('books')" 
-                        class="filter-btn px-5 py-2 text-sm font-medium rounded-2xl bg-white text-[#8b5e3c] border border-[#8b5e3c] hover:bg-[#f8f1e9] transition-all"
-                        data-category="books">Books</button>
-                <button onclick="filterProducts('objects')" 
-                        class="filter-btn px-5 py-2 text-sm font-medium rounded-2xl bg-white text-[#8b5e3c] border border-[#8b5e3c] hover:bg-[#f8f1e9] transition-all"
-                        data-category="objects">Objects & Curios</button>
-            </div>
-
-            <!-- Products Grid -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-                
-                <!-- Product 1: Original Art -->
-                <div class="product-card bg-white border border-stone-200 rounded-3xl overflow-hidden group" data-category="art">
-                    <div class="product-image aspect-[4/3] bg-stone-100">
-                        <img src="https://picsum.photos/id/1015/800/600" alt="Fractured Light - Elena Voss" class="w-full h-full object-cover">
-                    </div>
-                    <div class="p-6">
-                        <div class="flex items-start justify-between gap-3">
-                            <div class="min-w-0">
-                                <span class="category-pill bg-rose-100 text-rose-800">Original</span>
-                                <h3 class="font-semibold text-xl mt-3 leading-tight">Fractured Light</h3>
-                                <p class="text-[#8b5e3c] text-sm mt-0.5">Elena Voss • Oil on linen</p>
-                            </div>
-                            <div class="text-right flex-shrink-0">
-                                <div class="font-serif text-2xl text-[#3f2a1e]">$1,450</div>
-                            </div>
-                        </div>
-                        
-                        <div class="mt-5 flex items-center justify-between">
-                            <div class="text-xs text-emerald-700 font-medium flex items-center gap-x-1">
-                                <span class="inline-block w-1.5 h-1.5 bg-emerald-600 rounded-full"></span> 
-                                1 available
-                            </div>
-                            <button onclick="addToCart(1, 'Fractured Light by Elena Voss', 1450, 'https://picsum.photos/id/1015/800/600')"
-                                    class="px-6 py-2.5 text-xs font-semibold tracking-wider rounded-2xl border border-[#3f2a1e] hover:bg-[#3f2a1e] hover:text-white active:scale-[0.985] transition-all">
-                                ADD TO CART
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Product 2: Book -->
-                <div class="product-card bg-white border border-stone-200 rounded-3xl overflow-hidden group" data-category="books">
-                    <div class="product-image aspect-[4/3] bg-stone-100">
-                        <img src="https://picsum.photos/id/201/800/600" alt="The Atlas of Forgotten Places - Limited Edition" class="w-full h-full object-cover">
-                    </div>
-                    <div class="p-6">
-                        <div class="flex items-start justify-between gap-3">
-                            <div class="min-w-0">
-                                <span class="category-pill bg-amber-100 text-amber-800">Book</span>
-                                <h3 class="font-semibold text-xl mt-3 leading-tight">The Atlas of Forgotten Places</h3>
-                                <p class="text-[#8b5e3c] text-sm mt-0.5">Limited first edition • 2024</p>
-                            </div>
-                            <div class="text-right flex-shrink-0">
-                                <div class="font-serif text-2xl text-[#3f2a1e]">$68</div>
-                            </div>
-                        </div>
-                        
-                        <div class="mt-5 flex items-center justify-between">
-                            <div class="text-xs text-emerald-700 font-medium flex items-center gap-x-1">
-                                <span class="inline-block w-1.5 h-1.5 bg-emerald-600 rounded-full"></span> 
-                                12 left
-                            </div>
-                            <button onclick="addToCart(2, 'The Atlas of Forgotten Places (Limited Ed.)', 68, 'https://picsum.photos/id/201/800/600')"
-                                    class="px-6 py-2.5 text-xs font-semibold tracking-wider rounded-2xl border border-[#3f2a1e] hover:bg-[#3f2a1e] hover:text-white active:scale-[0.985] transition-all">
-                                ADD TO CART
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Product 3: Print -->
-                <div class="product-card bg-white border border-stone-200 rounded-3xl overflow-hidden group" data-category="prints">
-                    <div class="product-image aspect-[4/3] bg-stone-100">
-                        <img src="https://picsum.photos/id/160/800/600" alt="The Weight of Quiet - Limited Print" class="w-full h-full object-cover">
-                    </div>
-                    <div class="p-6">
-                        <div class="flex items-start justify-between gap-3">
-                            <div class="min-w-0">
-                                <span class="category-pill bg-sky-100 text-sky-800">Limited Print</span>
-                                <h3 class="font-semibold text-xl mt-3 leading-tight">The Weight of Quiet</h3>
-                                <p class="text-[#8b5e3c] text-sm mt-0.5">Marcus Hale • Edition of 25</p>
-                            </div>
-                            <div class="text-right flex-shrink-0">
-                                <div class="font-serif text-2xl text-[#3f2a1e]">$185</div>
-                            </div>
-                        </div>
-                        
-                        <div class="mt-5 flex items-center justify-between">
-                            <div class="text-xs text-emerald-700 font-medium flex items-center gap-x-1">
-                                <span class="inline-block w-1.5 h-1.5 bg-emerald-600 rounded-full"></span> 
-                                7 left
-                            </div>
-                            <button onclick="addToCart(3, 'The Weight of Quiet (Limited Print)', 185, 'https://picsum.photos/id/160/800/600')"
-                                    class="px-6 py-2.5 text-xs font-semibold tracking-wider rounded-2xl border border-[#3f2a1e] hover:bg-[#3f2a1e] hover:text-white active:scale-[0.985] transition-all">
-                                ADD TO CART
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Product 4: Object -->
-                <div class="product-card bg-white border border-stone-200 rounded-3xl overflow-hidden group" data-category="objects">
-                    <div class="product-image aspect-[4/3] bg-stone-100">
-                        <img src="https://picsum.photos/id/251/800/600" alt="Hand-thrown Vessel No. 17" class="w-full h-full object-cover">
-                    </div>
-                    <div class="p-6">
-                        <div class="flex items-start justify-between gap-3">
-                            <div class="min-w-0">
-                                <span class="category-pill bg-violet-100 text-violet-800">Object</span>
-                                <h3 class="font-semibold text-xl mt-3 leading-tight">Hand-thrown Vessel No. 17</h3>
-                                <p class="text-[#8b5e3c] text-sm mt-0.5">Stoneware with ash glaze • 2025</p>
-                            </div>
-                            <div class="text-right flex-shrink-0">
-                                <div class="font-serif text-2xl text-[#3f2a1e]">$95</div>
-                            </div>
-                        </div>
-                        
-                        <div class="mt-5 flex items-center justify-between">
-                            <div class="text-xs text-emerald-700 font-medium flex items-center gap-x-1">
-                                <span class="inline-block w-1.5 h-1.5 bg-emerald-600 rounded-full"></span> 
-                                3 available
-                            </div>
-                            <button onclick="addToCart(4, 'Hand-thrown Vessel No. 17', 95, 'https://picsum.photos/id/251/800/600')"
-                                    class="px-6 py-2.5 text-xs font-semibold tracking-wider rounded-2xl border border-[#3f2a1e] hover:bg-[#3f2a1e] hover:text-white active:scale-[0.985] transition-all">
-                                ADD TO CART
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Product 5: Original Art -->
-                <div class="product-card bg-white border border-stone-200 rounded-3xl overflow-hidden group" data-category="art">
-                    <div class="product-image aspect-[4/3] bg-stone-100">
-                        <img src="https://picsum.photos/id/29/800/600" alt="Ash & Honey - Lila Moreau" class="w-full h-full object-cover">
-                    </div>
-                    <div class="p-6">
-                        <div class="flex items-start justify-between gap-3">
-                            <div class="min-w-0">
-                                <span class="category-pill bg-rose-100 text-rose-800">Original</span>
-                                <h3 class="font-semibold text-xl mt-3 leading-tight">Ash & Honey</h3>
-                                <p class="text-[#8b5e3c] text-sm mt-0.5">Lila Moreau • Oil & cold wax</p>
-                            </div>
-                            <div class="text-right flex-shrink-0">
-                                <div class="font-serif text-2xl text-[#3f2a1e]">$920</div>
-                            </div>
-                        </div>
-                        
-                        <div class="mt-5 flex items-center justify-between">
-                            <div class="text-xs text-emerald-700 font-medium flex items-center gap-x-1">
-                                <span class="inline-block w-1.5 h-1.5 bg-emerald-600 rounded-full"></span> 
-                                1 available
-                            </div>
-                            <button onclick="addToCart(5, 'Ash & Honey by Lila Moreau', 920, 'https://picsum.photos/id/29/800/600')"
-                                    class="px-6 py-2.5 text-xs font-semibold tracking-wider rounded-2xl border border-[#3f2a1e] hover:bg-[#3f2a1e] hover:text-white active:scale-[0.985] transition-all">
-                                ADD TO CART
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Product 6: Book -->
-                <div class="product-card bg-white border border-stone-200 rounded-3xl overflow-hidden group" data-category="books">
-                    <div class="product-image aspect-[4/3] bg-stone-100">
-                        <img src="https://picsum.photos/id/180/800/600" alt="Letters from the Edge" class="w-full h-full object-cover">
-                    </div>
-                    <div class="p-6">
-                        <div class="flex items-start justify-between gap-3">
-                            <div class="min-w-0">
-                                <span class="category-pill bg-amber-100 text-amber-800">Book</span>
-                                <h3 class="font-semibold text-xl mt-3 leading-tight">Letters from the Edge</h3>
-                                <p class="text-[#8b5e3c] text-sm mt-0.5">Collected correspondence • 2023</p>
-                            </div>
-                            <div class="text-right flex-shrink-0">
-                                <div class="font-serif text-2xl text-[#3f2a1e]">$42</div>
-                            </div>
-                        </div>
-                        
-                        <div class="mt-5 flex items-center justify-between">
-                            <div class="text-xs text-emerald-700 font-medium flex items-center gap-x-1">
-                                <span class="inline-block w-1.5 h-1.5 bg-emerald-600 rounded-full"></span> 
-                                9 left
-                            </div>
-                            <button onclick="addToCart(6, 'Letters from the Edge', 42, 'https://picsum.photos/id/180/800/600')"
-                                    class="px-6 py-2.5 text-xs font-semibold tracking-wider rounded-2xl border border-[#3f2a1e] hover:bg-[#3f2a1e] hover:text-white active:scale-[0.985] transition-all">
-                                ADD TO CART
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Product 7: Print -->
-                <div class="product-card bg-white border border-stone-200 rounded-3xl overflow-hidden group" data-category="prints">
-                    <div class="product-image aspect-[4/3] bg-stone-100">
-                        <img src="https://picsum.photos/id/1005/800/600" alt="Velvet Static - Archival Print" class="w-full h-full object-cover">
-                    </div>
-                    <div class="p-6">
-                        <div class="flex items-start justify-between gap-3">
-                            <div class="min-w-0">
-                                <span class="category-pill bg-sky-100 text-sky-800">Limited Print</span>
-                                <h3 class="font-semibold text-xl mt-3 leading-tight">Velvet Static</h3>
-                                <p class="text-[#8b5e3c] text-sm mt-0.5">Sofia Reyes • Edition of 50</p>
-                            </div>
-                            <div class="text-right flex-shrink-0">
-                                <div class="font-serif text-2xl text-[#3f2a1e]">$125</div>
-                            </div>
-                        </div>
-                        
-                        <div class="mt-5 flex items-center justify-between">
-                            <div class="text-xs text-emerald-700 font-medium flex items-center gap-x-1">
-                                <span class="inline-block w-1.5 h-1.5 bg-emerald-600 rounded-full"></span> 
-                                22 left
-                            </div>
-                            <button onclick="addToCart(7, 'Velvet Static (Limited Print)', 125, 'https://picsum.photos/id/1005/800/600')"
-                                    class="px-6 py-2.5 text-xs font-semibold tracking-wider rounded-2xl border border-[#3f2a1e] hover:bg-[#3f2a1e] hover:text-white active:scale-[0.985] transition-all">
-                                ADD TO CART
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Product 8: Object -->
-                <div class="product-card bg-white border border-stone-200 rounded-3xl overflow-hidden group" data-category="objects">
-                    <div class="product-image aspect-[4/3] bg-stone-100">
-                        <img src="https://picsum.photos/id/133/800/600" alt="Brass & Horn Desk Object" class="w-full h-full object-cover">
-                    </div>
-                    <div class="p-6">
-                        <div class="flex items-start justify-between gap-3">
-                            <div class="min-w-0">
-                                <span class="category-pill bg-violet-100 text-violet-800">Object</span>
-                                <h3 class="font-semibold text-xl mt-3 leading-tight">Brass & Horn Desk Object</h3>
-                                <p class="text-[#8b5e3c] text-sm mt-0.5">Vintage Italian • c. 1960s</p>
-                            </div>
-                            <div class="text-right flex-shrink-0">
-                                <div class="font-serif text-2xl text-[#3f2a1e]">$78</div>
-                            </div>
-                        </div>
-                        
-                        <div class="mt-5 flex items-center justify-between">
-                            <div class="text-xs text-emerald-700 font-medium flex items-center gap-x-1">
-                                <span class="inline-block w-1.5 h-1.5 bg-emerald-600 rounded-full"></span> 
-                                4 available
-                            </div>
-                            <button onclick="addToCart(8, 'Brass & Horn Desk Object', 78, 'https://picsum.photos/id/133/800/600')"
-                                    class="px-6 py-2.5 text-xs font-semibold tracking-wider rounded-2xl border border-[#3f2a1e] hover:bg-[#3f2a1e] hover:text-white active:scale-[0.985] transition-all">
-                                ADD TO CART
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-
-            <div class="text-center mt-10">
-                <p class="text-xs text-[#3f2a1e]/60">More pieces added regularly. Sign up for early access to new arrivals.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact / Footer area -->
-    <section id="contact" class="max-w-screen-2xl mx-auto px-8 py-16">
-        <div class="max-w-xl mx-auto text-center">
-            <div class="uppercase tracking-[3px] text-xs font-semibold text-[#8b5e3c] mb-2">LET'S CONNECT</div>
-            <h2 class="font-serif text-4xl text-[#3f2a1e] mb-4">Have a question or a piece in mind?</h2>
-            <p class="text-[#3f2a1e]/80 mb-8">We love helping collectors find the right work. Reach out and we’ll respond within a day.</p>
-            
-            <a href="mailto:hello@beautifulmess.art" 
-               class="inline-flex items-center justify-center px-10 py-4 rounded-2xl bg-[#3f2a1e] text-white font-medium tracking-wider text-sm hover:bg-black active:scale-[0.985] transition-all">
-                WRITE TO US
-            </a>
-            
-            <div class="mt-12 text-xs text-[#3f2a1e]/60">
-                <p>Based in the rolling hills of Grey County, Ontario • Shipping worldwide</p>
-                <p class="mt-1">Instagram • @beautifulmess.art</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="bg-[#1f1814] text-[#f8f1e9]/70 py-12">
-        <div class="max-w-screen-2xl mx-auto px-8 text-xs">
-            <div class="flex flex-col md:flex-row justify-between items-center gap-y-6">
-                <div>
-                    © 2026 Beautiful Mess. All rights reserved.
-                </div>
-                <div class="flex gap-x-8">
-                    <a href="#" class="hover:text-white transition-colors">Privacy</a>
-                    <a href="#" class="hover:text-white transition-colors">Shipping</a>
-                    <a href="#" class="hover:text-white transition-colors">Returns</a>
-                    <a href="#" class="hover:text-white transition-colors">Journal</a>
-                </div>
-                <div class="text-[#f8f1e9]/50">
-                    Crafted with care for the beautifully imperfect.
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Gallery Modal -->
-    <div id="gallery-modal" onclick="if (event.target.id === 'gallery-modal') closeGalleryModal()" 
-         class="hidden fixed inset-0 bg-black/90 z-[100] items-center justify-center p-6 modal">
-        <div onclick="event.stopImmediatePropagation()" class="max-w-5xl w-full bg-white rounded-3xl overflow-hidden shadow-2xl">
-            <div class="grid md:grid-cols-5">
-                <!-- Image -->
-                <div class="md:col-span-3 bg-stone-950 flex items-center justify-center p-6 md:p-8">
-                    <img id="modal-image" class="max-h-[70vh] w-auto max-w-full rounded-2xl shadow-xl" alt="Gallery piece">
-                </div>
-                
-                <!-- Details -->
-                <div class="md:col-span-2 p-8 md:p-10 flex flex-col">
+                <div class="p-7 flex-1 flex flex-col">
                     <div class="flex-1">
-                        <div id="modal-medium" class="inline-block text-xs font-semibold tracking-widest px-4 py-1.5 rounded-full bg-stone-100 text-stone-700 mb-6"></div>
-                        
-                        <h3 id="modal-title" class="font-serif text-4xl leading-none tracking-tight text-[#3f2a1e]"></h3>
-                        <p id="modal-artist" class="text-[#8b5e3c] text-xl mt-2"></p>
-                        
-                        <div class="my-8 section-divider"></div>
-                        
-                        <p id="modal-desc" class="text-[#3f2a1e]/90 leading-relaxed text-[15px]"></p>
+                        <h3 class="font-display text-3xl tracking-tighter mb-2">The Garage</h3>
+                        <p class="text-zinc-400 text-sm leading-relaxed">Custom apparel, tools, and mechanical merch for those who live with grease under their nails.</p>
                     </div>
-                    
-                    <div class="pt-6 border-t flex gap-3">
-                        <button onclick="closeGalleryModal()" 
-                                class="flex-1 py-3.5 rounded-2xl border border-stone-300 text-sm font-medium hover:bg-stone-50 transition-colors">
-                            CLOSE
-                        </button>
-                        <button onclick="closeGalleryModal(); document.getElementById('shop').scrollIntoView({ behavior: 'smooth' });" 
-                                class="flex-1 py-3.5 rounded-2xl bg-[#3f2a1e] text-white text-sm font-medium hover:bg-black transition-colors">
-                            VIEW IN SHOP
-                        </button>
+                    <div class="mt-6 text-xs uppercase tracking-widest text-pink-500 font-medium flex items-center gap-x-2">
+                        ENTER THE GARAGE <span class="group-hover:translate-x-1 transition-transform">→</span>
                     </div>
                 </div>
             </div>
+
+            <!-- Colouring Books Portal -->
+            <div class="portal-card group rounded-3xl overflow-hidden border border-zinc-800 h-full flex flex-col" data-target="books.html">
+                <div class="relative h-56 bg-zinc-950 flex items-center justify-center overflow-hidden">
+                    <div class="text-center">
+                        <div class="text-7xl mb-3 portal-icon">📖</div>
+                        <div class="text-xs tracking-[3px] text-pink-500 font-semibold">EDUCATIONAL ART</div>
+                    </div>
+                    <div class="shutter rounded-t-3xl"></div>
+                </div>
+                <div class="p-7 flex-1 flex flex-col">
+                    <div class="flex-1">
+                        <h3 class="font-display text-3xl tracking-tighter mb-2">Colouring Books</h3>
+                        <p class="text-zinc-400 text-sm leading-relaxed">Thoughtfully designed colouring books that educate while they entertain. Perfect for curious minds of all ages.</p>
+                    </div>
+                    <div class="mt-6 text-xs uppercase tracking-widest text-pink-500 font-medium flex items-center gap-x-2">
+                        BROWSE THE BOOKS <span class="group-hover:translate-x-1 transition-transform">→</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Candles Portal -->
+            <div class="portal-card group rounded-3xl overflow-hidden border border-zinc-800 h-full flex flex-col" data-target="candles.html">
+                <div class="relative h-56 bg-zinc-950 flex items-center justify-center overflow-hidden">
+                    <div class="text-center">
+                        <div class="text-7xl mb-3 portal-icon">🕯️</div>
+                        <div class="text-xs tracking-[3px] text-pink-500 font-semibold">HAND-POURED</div>
+                    </div>
+                    <div class="shutter rounded-t-3xl"></div>
+                </div>
+                <div class="p-7 flex-1 flex flex-col">
+                    <div class="flex-1">
+                        <h3 class="font-display text-3xl tracking-tighter mb-2">Scented Candles</h3>
+                        <p class="text-zinc-400 text-sm leading-relaxed">Small-batch, hand-poured candles with carefully curated scents. Made with love in Grey County.</p>
+                    </div>
+                    <div class="mt-6 text-xs uppercase tracking-widest text-pink-500 font-medium flex items-center gap-x-2">
+                        DISCOVER THE SCENTS <span class="group-hover:translate-x-1 transition-transform">→</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3D Printing Portal -->
+            <div class="portal-card group rounded-3xl overflow-hidden border border-zinc-800 h-full flex flex-col" data-target="printing.html">
+                <div class="relative h-56 bg-zinc-950 flex items-center justify-center overflow-hidden">
+                    <div class="text-center">
+                        <div class="text-7xl mb-3 portal-icon">🖨️</div>
+                        <div class="text-xs tracking-[3px] text-pink-500 font-semibold">LIMITED & CUSTOM</div>
+                    </div>
+                    <div class="shutter rounded-t-3xl"></div>
+                </div>
+                <div class="p-7 flex-1 flex flex-col">
+                    <div class="flex-1">
+                        <h3 class="font-display text-3xl tracking-tighter mb-2">3D Printing</h3>
+                        <p class="text-zinc-400 text-sm leading-relaxed">Limited edition figures and custom 3D printed creations. Have an idea? We can bring it to life.</p>
+                    </div>
+                    <div class="mt-6 text-xs uppercase tracking-widest text-pink-500 font-medium flex items-center gap-x-2">
+                        ENTER THE LAB <span class="group-hover:translate-x-1 transition-transform">→</span>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
 
+    <!-- Footer -->
+    <footer class="bg-zinc-950 py-10">
+        <div class="max-w-screen-2xl mx-auto px-8 text-center text-xs text-zinc-500">
+            <p>Based in rural Grey County, Ontario • Shipping across Canada & worldwide</p>
+            <p class="mt-2">© 2026 Beautiful Mess. All rights reserved.</p>
+        </div>
+    </footer>
+
     <!-- Cart Sidebar -->
-    <div id="cart-sidebar" 
-         class="cart-sidebar fixed top-0 right-0 h-full w-full max-w-md bg-white shadow-2xl z-[110] transform translate-x-full transition-transform duration-300 ease-out flex flex-col">
-        
-        <div class="flex items-center justify-between px-8 py-6 border-b">
-            <div class="flex items-center gap-x-3">
-                <span class="font-serif text-3xl text-[#3f2a1e]">Your Cart</span>
-            </div>
-            <button onclick="toggleCart()" class="text-3xl leading-none text-stone-400 hover:text-stone-600">&times;</button>
+    <div id="cart-sidebar" class="cart-sidebar fixed top-0 right-0 h-full w-full max-w-md bg-[#0a0a0a] border-l border-zinc-800 z-[100] transform translate-x-full transition-transform duration-300 flex flex-col">
+        <div class="flex items-center justify-between px-8 py-6 border-b border-zinc-800">
+            <span class="font-display text-3xl tracking-tighter">Your Cart</span>
+            <button onclick="toggleCart()" class="text-3xl leading-none text-zinc-400 hover:text-white">&times;</button>
         </div>
 
         <div id="cart-items" class="flex-1 overflow-y-auto px-8 py-6 space-y-6 text-sm">
             <!-- Populated by JS -->
         </div>
 
-        <div class="border-t px-8 py-6 bg-stone-50">
+        <div class="border-t border-zinc-800 p-8 bg-zinc-950">
             <div class="flex justify-between items-baseline mb-6">
-                <span class="text-sm font-medium text-stone-600">Total</span>
-                <span id="cart-total" class="font-serif text-4xl text-[#3f2a1e]">$0</span>
+                <span class="text-sm text-zinc-400">Total</span>
+                <span id="cart-total" class="font-display text-4xl tracking-tighter">$0</span>
             </div>
             
-            <button onclick="checkout()" 
-                    class="w-full py-4 rounded-2xl bg-[#3f2a1e] hover:bg-black active:scale-[0.985] transition-all text-white font-medium tracking-wider text-sm">
-                PROCEED TO CHECKOUT
+            <button onclick="window.location.href='cart.html'" 
+                    class="w-full py-4 rounded-2xl bg-pink-500 hover:bg-pink-600 active:scale-[0.985] transition-all text-black font-semibold tracking-wider text-sm">
+                GO TO CART PAGE
             </button>
-            
-            <p class="text-center text-[10px] text-stone-500 mt-4">Secure checkout • Ships from Ontario, Canada</p>
-        </div>
-    </div>
-
-    <!-- Checkout Modal -->
-    <div id="checkout-modal" onclick="if (event.target.id === 'checkout-modal') closeCheckoutModal()" 
-         class="hidden fixed inset-0 bg-black/70 z-[120] items-center justify-center p-6 modal">
-        <div onclick="event.stopImmediatePropagation()" class="bg-white rounded-3xl max-w-lg w-full overflow-hidden">
-            <div class="px-8 pt-8 pb-6">
-                <h3 class="font-serif text-3xl text-[#3f2a1e]">Checkout</h3>
-                <p class="text-sm text-stone-600 mt-1">Almost there. This is a demo — in a real store this would connect to Stripe or similar.</p>
-                
-                <div id="checkout-summary" class="my-8 text-sm">
-                    <!-- JS populated -->
-                </div>
-
-                <div class="space-y-4">
-                    <div>
-                        <label class="text-xs font-medium text-stone-600 block mb-1.5">Full name</label>
-                        <input type="text" value="Elliott Syropiatko" class="w-full border border-stone-300 rounded-2xl px-5 py-3 text-sm focus:outline-none focus:border-[#8b5e3c]">
-                    </div>
-                    <div class="grid grid-cols-2 gap-4">
-                        <div>
-                            <label class="text-xs font-medium text-stone-600 block mb-1.5">Email</label>
-                            <input type="email" value="e.syropiatko@municipalenforcement.ca" class="w-full border border-stone-300 rounded-2xl px-5 py-3 text-sm focus:outline-none focus:border-[#8b5e3c]">
-                        </div>
-                        <div>
-                            <label class="text-xs font-medium text-stone-600 block mb-1.5">Phone</label>
-                            <input type="tel" value="(519) 555-0142" class="w-full border border-stone-300 rounded-2xl px-5 py-3 text-sm focus:outline-none focus:border-[#8b5e3c]">
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="px-8 py-5 bg-stone-50 flex gap-3">
-                <button onclick="closeCheckoutModal()" 
-                        class="flex-1 py-3.5 rounded-2xl border border-stone-300 text-sm font-medium hover:bg-white transition-colors">
-                    CANCEL
-                </button>
-                <button onclick="placeOrder()" 
-                        class="flex-1 py-3.5 rounded-2xl bg-[#3f2a1e] text-white text-sm font-medium hover:bg-black transition-colors">
-                    PLACE ORDER
-                </button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Success Modal -->
-    <div id="success-modal" onclick="if (event.target.id === 'success-modal') { this.classList.add('hidden'); this.classList.remove('flex'); }" 
-         class="hidden fixed inset-0 bg-black/80 z-[130] items-center justify-center p-6 modal">
-        <div onclick="event.stopImmediatePropagation()" class="bg-white rounded-3xl max-w-sm w-full p-10 text-center">
-            <div class="mx-auto w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mb-6">
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-9 h-9" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.25" d="M5 10l7-7m0 0l7 7m-7-7v18" />
-                </svg>
-            </div>
-            
-            <h3 class="font-serif text-3xl text-[#3f2a1e]">Thank you.</h3>
-            <p class="mt-3 text-[#3f2a1e]/80">Your order has been received. We’ll be in touch shortly with shipping details and a personal note.</p>
-            
-            <button onclick="document.getElementById('success-modal').classList.add('hidden'); document.getElementById('success-modal').classList.remove('flex');" 
-                    class="mt-8 w-full py-3.5 rounded-2xl border border-stone-300 text-sm font-medium hover:bg-stone-50 transition-colors">
-                CLOSE
-            </button>
+            <p class="text-center text-[10px] text-zinc-500 mt-4">Cart saved across all pages</p>
         </div>
     </div>
 
     <script src="js/main.js"></script>
-    <script>
-        // Tailwind script configuration
-        function initializeTailwind() {
-            document.documentElement.style.setProperty('--accent', '#8b5e3c');
-            
-            // Optional: extend Tailwind colors if needed
-            console.log('%c[Beautiful Mess] Tailwind + custom styles initialized', 'color:#8b5e3c');
-        }
-        
-        window.onload = function() {
-            initializeTailwind();
-        }
-    </script>
 </body>
 </html>
