@@ -1,106 +1,147 @@
-/* Beautiful Mess - Custom Styles */
+/* ==========================================
+   BEAUTIFUL MESS — Black + Hot Pink Theme
+   ========================================== */
 
 :root {
-  --color-primary: #3f2a1e;      /* Deep brown */
-  --color-accent: #8b5e3c;       /* Warm terracotta */
-  --color-gold: #c9a227;         /* Antique gold */
-  --color-cream: #f8f1e9;        /* Warm cream */
-  --color-dark: #1f1814;         /* Rich dark */
+  --bg: #0a0a0a;
+  --bg-elevated: #111111;
+  --bg-card: #161616;
+  --pink: #ff1493;
+  --pink-light: #ff4da6;
+  --pink-glow: rgba(255, 20, 147, 0.3);
+  --text: #f1f1f1;
+  --text-muted: #a1a1aa;
+  --border: #27272a;
+  --accent: #ff1493;
 }
 
 body {
-  font-family: 'Georgia', serif;
-}
-
-.font-sans {
+  background-color: var(--bg);
+  color: var(--text);
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
-/* Hero */
-.hero {
-  background-image: linear-gradient(rgba(31, 24, 20, 0.65), rgba(31, 24, 20, 0.75)), url('https://picsum.photos/id/1015/2000/1200');
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
+.font-display {
+  font-family: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  letter-spacing: -0.02em;
 }
 
-/* Gallery */
-.gallery-grid {
-  column-count: 1;
-  column-gap: 1rem;
+/* Navbar */
+.navbar {
+  background-color: rgba(10, 10, 10, 0.95);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
 }
 
-@media (min-width: 640px) {
-  .gallery-grid {
-    column-count: 2;
-  }
+.nav-link {
+  color: var(--text);
+  transition: color 0.2s ease;
 }
 
-@media (min-width: 1024px) {
-  .gallery-grid {
-    column-count: 3;
-  }
+.nav-link:hover {
+  color: var(--pink);
 }
 
-.gallery-item {
-  break-inside: avoid;
-  margin-bottom: 1rem;
+/* Portal Cards on Homepage */
+.portal-card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
   overflow: hidden;
-  border-radius: 0.75rem;
-  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease;
   cursor: pointer;
 }
 
-.gallery-item:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+.portal-card:hover {
+  border-color: var(--pink);
+  box-shadow: 0 0 0 1px var(--pink-glow);
+  transform: translateY(-2px);
 }
 
-.gallery-item img {
+.portal-card:active {
+  transform: scale(0.985);
+}
+
+/* Garage Door / Shutter Animation */
+.portal-card.opening .shutter {
+  animation: shutterOpen 0.7s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+}
+
+.shutter {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
-  display: block;
-  transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    #1f1f1f 0%,
+    #111 40%,
+    #0a0a0a 100%
+  );
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.7s cubic-bezier(0.23, 1, 0.32, 1);
+  transform: translateY(0);
 }
 
-.gallery-item:hover img {
-  transform: scale(1.08);
+.portal-card.opening .shutter {
+  transform: translateY(-100%);
+}
+
+.shutter::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(to right, transparent, var(--pink), transparent);
 }
 
 /* Product Cards */
 .product-card {
-  transition: all 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+  background-color: var(--bg-card);
+  border: 1px solid var(--border);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .product-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  border-color: var(--pink);
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.3);
+  transform: translateY(-4px);
 }
 
-.product-image {
-  overflow: hidden;
-}
-
-.product-image img {
-  transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
-}
-
-.product-card:hover .product-image img {
-  transform: scale(1.1);
-}
-
-/* Category Pills */
-.category-pill {
-  font-size: 0.75rem;
-  padding: 0.25rem 0.75rem;
-  border-radius: 9999px;
+/* Buttons */
+.btn-pink {
+  background-color: var(--pink);
+  color: white;
   font-weight: 600;
-  letter-spacing: 0.025em;
+  letter-spacing: 0.5px;
+  transition: all 0.2s ease;
 }
 
-/* Cart */
+.btn-pink:hover {
+  background-color: var(--pink-light);
+  box-shadow: 0 0 15px var(--pink-glow);
+}
+
+.btn-outline {
+  border: 1px solid var(--pink);
+  color: var(--pink);
+  transition: all 0.2s ease;
+}
+
+.btn-outline:hover {
+  background-color: var(--pink);
+  color: white;
+}
+
+/* Cart Sidebar */
 .cart-sidebar {
-  box-shadow: -10px 0 15px -3px rgb(0 0 0 / 0.1);
+  box-shadow: -10px 0 30px -10px rgb(0 0 0 / 0.6);
 }
 
 /* Modal */
@@ -109,28 +150,37 @@ body {
 }
 
 @keyframes fadeInScale {
-  from {
-    opacity: 0;
-    transform: scale(0.95);
+  from { opacity: 0; transform: scale(0.96); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* Section headers */
+.section-header {
+  font-size: 2.25rem;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+}
+
+@media (min-width: 768px) {
+  .section-header {
+    font-size: 3rem;
   }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
 }
 
-/* Smooth scroll */
-html {
-  scroll-behavior: smooth;
+/* Consistent form styles */
+input, textarea {
+  background-color: #111;
+  border: 1px solid var(--border);
+  color: var(--text);
 }
 
-/* Section dividers */
-.section-divider {
-  height: 1px;
-  background: linear-gradient(to right, transparent, #d1d5db, transparent);
+input:focus, textarea:focus {
+  border-color: var(--pink);
+  outline: none;
+  box-shadow: 0 0 0 3px var(--pink-glow);
 }
 
-/* Artistic touches */
-.artistic-border {
-  border-image: linear-gradient(to bottom, var(--color-gold), var(--color-accent)) 1;
+/* Footer */
+footer {
+  border-top: 1px solid var(--border);
 }
