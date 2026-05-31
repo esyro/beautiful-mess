@@ -3,38 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Beautiful Mess — Art, Books, Objects & More</title>
+    <title>Beautiful Mess</title>
     <meta name="description" content="A beautiful mess of custom garage merch, educational colouring books, handmade candles, and 3D printed creations.">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="css/style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Instrument+Sans:wght@400;500;600&display=swap');
-        
-        .logo-pink {
-            font-family: 'Playfair Display', Georgia, serif;
-            color: #ff1493;
-            text-shadow: 0 0 20px rgba(255, 20, 147, 0.5);
-            letter-spacing: -2px;
-        }
-
-        .portal-icon {
-            filter: drop-shadow(0 10px 10px rgb(0 0 0 / 0.5));
-        }
-
-        .mechanical-border {
+        .banner-container {
             position: relative;
+            max-width: 900px;
+            margin: 0 auto;
         }
-        .mechanical-border::before {
-            content: '';
+        .banner-container img {
+            width: 100%;
+            height: auto;
+            border-radius: 16px;
+            box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.4);
+        }
+        /* Clickable areas over the image */
+        .clickable-area {
             position: absolute;
-            inset: -1px;
-            background: linear-gradient(45deg, #ff1493, transparent, #ff1493);
-            z-index: -1;
-            opacity: 0.15;
-            border-radius: 1rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border-radius: 8px;
+        }
+        .clickable-area:hover {
+            background-color: rgba(255, 20, 147, 0.08);
+            box-shadow: 0 0 0 2px #ff1493;
         }
     </style>
 </head>
@@ -47,143 +41,62 @@
                     <div class="w-9 h-9 bg-[#ff1493] rounded-xl flex items-center justify-center">
                         <span class="text-black text-2xl font-bold tracking-tighter">B</span>
                     </div>
-                    <span class="font-display text-4xl tracking-tighter logo-pink">Beautiful Mess</span>
+                    <span class="font-display text-4xl tracking-tighter text-[#ff1493]">Beautiful Mess</span>
                 </a>
 
-                <div class="flex items-center gap-x-8">
-                    <div class="hidden md:flex items-center gap-x-8 text-sm font-medium">
-                        <a href="garage.html" class="nav-link">Garage</a>
-                        <a href="books.html" class="nav-link">Books</a>
-                        <a href="candles.html" class="nav-link">Candles</a>
-                        <a href="printing.html" class="nav-link">3D Printing</a>
-                    </div>
-
-                    <!-- Cart Button -->
-                    <button id="cart-btn" onclick="toggleCart()"
-                            class="flex items-center gap-x-2.5 px-5 py-2.5 rounded-2xl border border-zinc-700 hover:border-pink-500 transition-all group">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-pink-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
-                        </svg>
-                        <span class="text-sm font-medium">Cart</span>
-                        <span id="cart-count" class="inline-flex items-center justify-center min-w-[20px] h-5 px-1.5 text-[10px] font-bold bg-pink-500 text-black rounded-full">0</span>
-                    </button>
-                </div>
+                <button id="cart-btn" onclick="toggleCart()"
+                        class="flex items-center gap-x-2.5 px-5 py-2.5 rounded-2xl border border-zinc-700 hover:border-pink-500 transition-all">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-pink-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+                    </svg>
+                    <span class="text-sm font-medium">Cart</span>
+                    <span id="cart-count" class="inline-flex items-center justify-center min-w-[20px] h-5 px-1.5 text-[10px] font-bold bg-pink-500 text-black rounded-full">0</span>
+                </button>
             </div>
         </div>
     </nav>
 
-    <!-- Hero -->
-    <div class="max-w-screen-2xl mx-auto px-8 pt-16 pb-12 text-center">
-        <div class="inline-flex items-center gap-x-2 px-4 py-1 rounded-full bg-zinc-900 border border-zinc-800 text-xs tracking-[3px] mb-6">
-            EST. 2026 • GREY COUNTY, ONTARIO
+    <!-- Hero with Exact Banner Image -->
+    <div class="max-w-screen-2xl mx-auto px-6 pt-10 pb-16">
+        <div class="text-center mb-8">
+            <div class="inline-flex items-center gap-x-2 px-4 py-1 rounded-full bg-zinc-900 border border-zinc-800 text-xs tracking-[3px] mb-4">
+                EST. 2026 • GREY COUNTY, ONTARIO
+            </div>
         </div>
 
-        <h1 class="font-display text-7xl md:text-8xl tracking-tighter mb-4">
-            A <span class="logo-pink">beautiful mess</span><br>of creativity.
-        </h1>
-        <p class="max-w-md mx-auto text-lg text-zinc-400">
-            Custom garage merch, educational colouring books, handmade candles,<br class="hidden md:block"> and limited 3D printed creations.
+        <!-- The Exact Image with Clickable Boxes -->
+        <div class="banner-container mx-auto" style="max-width: 860px; position: relative;">
+            <img src="assets/beautiful-mess-banner.jpg" 
+                 alt="Beautiful Mess - Our Sponsors" 
+                 class="w-full rounded-3xl shadow-2xl"
+                 usemap="#portalmap">
+
+            <!-- Image Map for the four clickable boxes -->
+            <map name="portalmap">
+                <!-- GARAGE box (leftmost) -->
+                <area shape="rect" coords="40,920,240,1100" href="garage.html" alt="Garage">
+                
+                <!-- CUSTOM COLOURING BOOKS box -->
+                <area shape="rect" coords="260,920,460,1100" href="books.html" alt="Custom Colouring Books">
+                
+                <!-- CANDLES box -->
+                <area shape="rect" coords="480,920,680,1100" href="candles.html" alt="Candles">
+                
+                <!-- 3D PRINTING box (rightmost) -->
+                <area shape="rect" coords="700,920,832,1100" href="printing.html" alt="3D Printing">
+            </map>
+        </div>
+
+        <p class="text-center text-zinc-400 mt-6 text-sm tracking-wide">
+            Click any box to enter that world.
         </p>
     </div>
 
-    <!-- The Four Portals -->
-    <div class="max-w-screen-2xl mx-auto px-8 pb-20">
-        <div class="text-center mb-10">
-            <div class="uppercase tracking-[4px] text-xs font-semibold text-pink-500 mb-2">EXPLORE THE MESS</div>
-            <h2 class="font-display text-4xl tracking-tighter">Choose Your Portal</h2>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            
-            <!-- Garage Portal -->
-            <div class="portal-card group rounded-3xl overflow-hidden border border-zinc-800 h-full flex flex-col" data-target="garage.html">
-                <div class="relative h-56 bg-zinc-950 flex items-center justify-center overflow-hidden">
-                    <div class="text-center">
-                        <div class="text-7xl mb-3 portal-icon">🔧</div>
-                        <div class="text-xs tracking-[3px] text-pink-500 font-semibold">CUSTOM MERCH</div>
-                    </div>
-                    <!-- Shutter overlay for animation -->
-                    <div class="shutter rounded-t-3xl"></div>
-                </div>
-                <div class="p-7 flex-1 flex flex-col">
-                    <div class="flex-1">
-                        <h3 class="font-display text-3xl tracking-tighter mb-2">The Garage</h3>
-                        <p class="text-zinc-400 text-sm leading-relaxed">Custom apparel, tools, and mechanical merch for those who live with grease under their nails.</p>
-                    </div>
-                    <div class="mt-6 text-xs uppercase tracking-widest text-pink-500 font-medium flex items-center gap-x-2">
-                        ENTER THE GARAGE <span class="group-hover:translate-x-1 transition-transform">→</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Colouring Books Portal -->
-            <div class="portal-card group rounded-3xl overflow-hidden border border-zinc-800 h-full flex flex-col" data-target="books.html">
-                <div class="relative h-56 bg-zinc-950 flex items-center justify-center overflow-hidden">
-                    <div class="text-center">
-                        <div class="text-7xl mb-3 portal-icon">📖</div>
-                        <div class="text-xs tracking-[3px] text-pink-500 font-semibold">EDUCATIONAL ART</div>
-                    </div>
-                    <div class="shutter rounded-t-3xl"></div>
-                </div>
-                <div class="p-7 flex-1 flex flex-col">
-                    <div class="flex-1">
-                        <h3 class="font-display text-3xl tracking-tighter mb-2">Colouring Books</h3>
-                        <p class="text-zinc-400 text-sm leading-relaxed">Thoughtfully designed colouring books that educate while they entertain. Perfect for curious minds of all ages.</p>
-                    </div>
-                    <div class="mt-6 text-xs uppercase tracking-widest text-pink-500 font-medium flex items-center gap-x-2">
-                        BROWSE THE BOOKS <span class="group-hover:translate-x-1 transition-transform">→</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Candles Portal -->
-            <div class="portal-card group rounded-3xl overflow-hidden border border-zinc-800 h-full flex flex-col" data-target="candles.html">
-                <div class="relative h-56 bg-zinc-950 flex items-center justify-center overflow-hidden">
-                    <div class="text-center">
-                        <div class="text-7xl mb-3 portal-icon">🕯️</div>
-                        <div class="text-xs tracking-[3px] text-pink-500 font-semibold">HAND-POURED</div>
-                    </div>
-                    <div class="shutter rounded-t-3xl"></div>
-                </div>
-                <div class="p-7 flex-1 flex flex-col">
-                    <div class="flex-1">
-                        <h3 class="font-display text-3xl tracking-tighter mb-2">Scented Candles</h3>
-                        <p class="text-zinc-400 text-sm leading-relaxed">Small-batch, hand-poured candles with carefully curated scents. Made with love in Grey County.</p>
-                    </div>
-                    <div class="mt-6 text-xs uppercase tracking-widest text-pink-500 font-medium flex items-center gap-x-2">
-                        DISCOVER THE SCENTS <span class="group-hover:translate-x-1 transition-transform">→</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 3D Printing Portal -->
-            <div class="portal-card group rounded-3xl overflow-hidden border border-zinc-800 h-full flex flex-col" data-target="printing.html">
-                <div class="relative h-56 bg-zinc-950 flex items-center justify-center overflow-hidden">
-                    <div class="text-center">
-                        <div class="text-7xl mb-3 portal-icon">🖨️</div>
-                        <div class="text-xs tracking-[3px] text-pink-500 font-semibold">LIMITED & CUSTOM</div>
-                    </div>
-                    <div class="shutter rounded-t-3xl"></div>
-                </div>
-                <div class="p-7 flex-1 flex flex-col">
-                    <div class="flex-1">
-                        <h3 class="font-display text-3xl tracking-tighter mb-2">3D Printing</h3>
-                        <p class="text-zinc-400 text-sm leading-relaxed">Limited edition figures and custom 3D printed creations. Have an idea? We can bring it to life.</p>
-                    </div>
-                    <div class="mt-6 text-xs uppercase tracking-widest text-pink-500 font-medium flex items-center gap-x-2">
-                        ENTER THE LAB <span class="group-hover:translate-x-1 transition-transform">→</span>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </div>
-
     <!-- Footer -->
-    <footer class="bg-zinc-950 py-10">
+    <footer class="bg-zinc-950 py-8 border-t border-zinc-800">
         <div class="max-w-screen-2xl mx-auto px-8 text-center text-xs text-zinc-500">
-            <p>Based in rural Grey County, Ontario • Shipping across Canada & worldwide</p>
-            <p class="mt-2">© 2026 Beautiful Mess. All rights reserved.</p>
+            Based in rural Grey County, Ontario • Shipping across Canada & worldwide<br>
+            © 2026 Beautiful Mess. All rights reserved.
         </div>
     </footer>
 
@@ -193,22 +106,16 @@
             <span class="font-display text-3xl tracking-tighter">Your Cart</span>
             <button onclick="toggleCart()" class="text-3xl leading-none text-zinc-400 hover:text-white">&times;</button>
         </div>
-
-        <div id="cart-items" class="flex-1 overflow-y-auto px-8 py-6 space-y-6 text-sm">
-            <!-- Populated by JS -->
-        </div>
-
+        <div id="cart-items" class="flex-1 overflow-y-auto px-8 py-6 space-y-6 text-sm"></div>
         <div class="border-t border-zinc-800 p-8 bg-zinc-950">
             <div class="flex justify-between items-baseline mb-6">
                 <span class="text-sm text-zinc-400">Total</span>
                 <span id="cart-total" class="font-display text-4xl tracking-tighter">$0</span>
             </div>
-            
             <button onclick="window.location.href='cart.html'" 
                     class="w-full py-4 rounded-2xl bg-pink-500 hover:bg-pink-600 active:scale-[0.985] transition-all text-black font-semibold tracking-wider text-sm">
                 GO TO CART PAGE
             </button>
-            <p class="text-center text-[10px] text-zinc-500 mt-4">Cart saved across all pages</p>
         </div>
     </div>
 
