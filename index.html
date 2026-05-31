@@ -19,17 +19,6 @@
             border-radius: 16px;
             box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.4);
         }
-        /* Clickable areas over the image */
-        .clickable-area {
-            position: absolute;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            border-radius: 8px;
-        }
-        .clickable-area:hover {
-            background-color: rgba(255, 20, 147, 0.08);
-            box-shadow: 0 0 0 2px #ff1493;
-        }
     </style>
 </head>
 <body class="bg-[#0a0a0a] text-[#f1f1f1]">
@@ -56,7 +45,7 @@
         </div>
     </nav>
 
-    <!-- Hero with Exact Banner Image -->
+    <!-- Hero with Exact Uploaded Image -->
     <div class="max-w-screen-2xl mx-auto px-6 pt-10 pb-16">
         <div class="text-center mb-8">
             <div class="inline-flex items-center gap-x-2 px-4 py-1 rounded-full bg-zinc-900 border border-zinc-800 text-xs tracking-[3px] mb-4">
@@ -64,25 +53,22 @@
             </div>
         </div>
 
-        <!-- The Exact Image with Clickable Boxes -->
+        <!-- The Exact Image the user uploaded -->
         <div class="banner-container mx-auto" style="max-width: 860px; position: relative;">
-            <img src="assets/beautiful-mess-banner.jpg" 
-                 alt="Beautiful Mess - Our Sponsors" 
+            <img src="assets/grok_image_1780248370806.jpg" 
+                 alt="Beautiful Mess Banner" 
                  class="w-full rounded-3xl shadow-2xl"
                  usemap="#portalmap">
 
-            <!-- Image Map for the four clickable boxes -->
+            <!-- Image Map - clickable boxes -->
             <map name="portalmap">
-                <!-- GARAGE box (leftmost) -->
+                <!-- GARAGE -->
                 <area shape="rect" coords="40,920,240,1100" href="garage.html" alt="Garage">
-                
-                <!-- CUSTOM COLOURING BOOKS box -->
+                <!-- CUSTOM COLOURING BOOKS -->
                 <area shape="rect" coords="260,920,460,1100" href="books.html" alt="Custom Colouring Books">
-                
-                <!-- CANDLES box -->
+                <!-- CANDLES -->
                 <area shape="rect" coords="480,920,680,1100" href="candles.html" alt="Candles">
-                
-                <!-- 3D PRINTING box (rightmost) -->
+                <!-- 3D PRINTING -->
                 <area shape="rect" coords="700,920,832,1100" href="printing.html" alt="3D Printing">
             </map>
         </div>
