@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scented Candles — Beautiful Mess</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body class="bg-[#0a0a0a] text-[#f1f1f1]">
+    <nav class="navbar sticky top-0 z-50 border-b border-zinc-800">
+        <div class="max-w-screen-2xl mx-auto px-8">
+            <div class="flex items-center justify-between h-20">
+                <a href="index.html" class="flex items-center gap-x-3">
+                    <div class="w-9 h-9 bg-[#ff1493] rounded-xl flex items-center justify-center">
+                        <span class="text-black text-2xl font-bold tracking-tighter">B</span>
+                    </div>
+                    <span class="font-display text-4xl tracking-tighter logo-pink">Beautiful Mess</span>
+                </a>
+                <div class="flex items-center gap-x-8">
+                    <div class="hidden md:flex items-center gap-x-8 text-sm font-medium">
+                        <a href="garage.html" class="nav-link">Garage</a>
+                        <a href="books.html" class="nav-link">Books</a>
+                        <a href="candles.html" class="nav-link text-pink-500">Candles</a>
+                        <a href="printing.html" class="nav-link">3D Printing</a>
+                    </div>
+                    <button id="cart-btn" onclick="toggleCart()" class="flex items-center gap-x-2.5 px-5 py-2.5 rounded-2xl border border-zinc-700 hover:border-pink-500 transition-all">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-pink-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+                        </svg>
+                        <span class="text-sm font-medium">Cart</span>
+                        <span id="cart-count" class="inline-flex items-center justify-center min-w-[20px] h-5 px-1.5 text-[10px] font-bold bg-pink-500 text-black rounded-full">0</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="max-w-screen-2xl mx-auto px-8 pt-12 pb-20">
+        <div class="flex items-end justify-between mb-10">
+            <div>
+                <a href="index.html" class="text-sm text-pink-500 hover:underline flex items-center gap-x-2 mb-3">← BACK TO HUB</a>
+                <h1 class="font-display text-6xl tracking-tighter">Scented Candles</h1>
+                <p class="text-xl text-zinc-400 mt-2">Hand-poured in small batches</p>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <!-- Candle 1 -->
+            <div class="product-card rounded-3xl overflow-hidden border border-zinc-800">
+                <div class="h-64 bg-zinc-950 flex items-center justify-center">
+                    <div class="text-center">
+                        <div class="text-6xl mb-2">🌲</div>
+                        <div class="text-xs tracking-widest text-pink-500">WOODSY • 8oz</div>
+                    </div>
+                </div>
+                <div class="p-7">
+                    <h3 class="font-semibold text-2xl tracking-tight">Pine & Smoke</h3>
+                    <p class="text-sm text-zinc-400 mt-1">Fresh cut pine, birch tar, and a touch of sweet smoke. Perfect for cozy evenings.</p>
+                    <div class="mt-6 flex items-baseline justify-between">
+                        <div><span class="font-display text-3xl tracking-tighter">$28</span></div>
+                        <button onclick="addToCart('c1', 'Pine & Smoke Candle (8oz)', 28, '')" class="btn-pink px-8 py-3 rounded-2xl text-sm font-semibold tracking-wider active:scale-[0.985]">ADD TO CART</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Candle 2 -->
+            <div class="product-card rounded-3xl overflow-hidden border border-zinc-800">
+                <div class="h-64 bg-zinc-950 flex items-center justify-center">
+                    <div class="text-center">
+                        <div class="text-6xl mb-2">🍯</div>
+                        <div class="text-xs tracking-widest text-pink-500">WARM • 8oz</div>
+                    </div>
+                </div>
+                <div class="p-7">
+                    <h3 class="font-semibold text-2xl tracking-tight">Wild Honey & Tobacco</h3>
+                    <p class="text-sm text-zinc-400 mt-1">Raw honey, dried tobacco leaf, and warm vanilla. Rich and comforting.</p>
+                    <div class="mt-6 flex items-baseline justify-between">
+                        <div><span class="font-display text-3xl tracking-tighter">$28</span></div>
+                        <button onclick="addToCart('c2', 'Wild Honey & Tobacco Candle (8oz)', 28, '')" class="btn-pink px-8 py-3 rounded-2xl text-sm font-semibold tracking-wider active:scale-[0.985]">ADD TO CART</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Candle 3 -->
+            <div class="product-card rounded-3xl overflow-hidden border border-zinc-800">
+                <div class="h-64 bg-zinc-950 flex items-center justify-center">
+                    <div class="text-center">
+                        <div class="text-6xl mb-2">🌊</div>
+                        <div class="text-xs tracking-widest text-pink-500">FRESH • 8oz</div>
+                    </div>
+                </div>
+                <div class="p-7">
+                    <h3 class="font-semibold text-2xl tracking-tight">Lake & Cedar</h3>
+                    <p class="text-sm text-zinc-400 mt-1">Cool lake water, cedarwood, and fresh rain on stone. Clean and grounding.</p>
+                    <div class="mt-6 flex items-baseline justify-between">
+                        <div><span class="font-display text-3xl tracking-tighter">$28</span></div>
+                        <button onclick="addToCart('c3', 'Lake & Cedar Candle (8oz)', 28, '')" class="btn-pink px-8 py-3 rounded-2xl text-sm font-semibold tracking-wider active:scale-[0.985]">ADD TO CART</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <p class="text-center text-xs text-zinc-500 mt-12">All candles are soy + beeswax blend with cotton wicks. Refills & custom scents available on request.</p>
+    </div>
+
+    <!-- Cart Sidebar -->
+    <div id="cart-sidebar" class="cart-sidebar fixed top-0 right-0 h-full w-full max-w-md bg-[#0a0a0a] border-l border-zinc-800 z-[100] transform translate-x-full transition-transform duration-300 flex flex-col">
+        <div class="flex items-center justify-between px-8 py-6 border-b border-zinc-800">
+            <span class="font-display text-3xl tracking-tighter">Your Cart</span>
+            <button onclick="toggleCart()" class="text-3xl leading-none text-zinc-400 hover:text-white">&times;</button>
+        </div>
+        <div id="cart-items" class="flex-1 overflow-y-auto px-8 py-6 space-y-6 text-sm"></div>
+        <div class="border-t border-zinc-800 p-8 bg-zinc-950">
+            <div class="flex justify-between items-baseline mb-6">
+                <span class="text-sm text-zinc-400">Total</span>
+                <span id="cart-total" class="font-display text-4xl tracking-tighter">$0</span>
+            </div>
+            <button onclick="window.location.href='cart.html'" class="w-full py-4 rounded-2xl bg-pink-500 hover:bg-pink-600 active:scale-[0.985] transition-all text-black font-semibold tracking-wider text-sm">
+                GO TO CART PAGE
+            </button>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
